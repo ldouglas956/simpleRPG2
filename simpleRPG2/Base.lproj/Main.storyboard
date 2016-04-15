@@ -84,7 +84,7 @@
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="6uf-cz-knR"/>
-                                    <constraint firstAttribute="width" constant="100" id="6yc-7r-S4r"/>
+                                    <constraint firstAttribute="width" constant="150" id="6yc-7r-S4r"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Georgia-Bold" family="Georgia" pointSize="20"/>
                                 <state key="normal" title="RESET">
@@ -105,22 +105,25 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mRi-zy-A3k" userLabel="Lets Play 2">
-                                <rect key="frame" x="277" y="287" width="46" height="30"/>
+                                <rect key="frame" x="213" y="323" width="174" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="KiG-z4-Ap9"/>
+                                    <constraint firstAttribute="width" constant="150" id="KiG-z4-Ap9"/>
                                     <constraint firstAttribute="height" constant="40" id="Z59-GL-Bcx"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="20"/>
-                                <state key="normal" title="Let's Play!">
+                                <state key="normal" title="Let's Play!2">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="letsPlay2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5qR-do-mWc"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KfV-Vf-Jex">
-                                <rect key="frame" x="277" y="287" width="46" height="30"/>
+                                <rect key="frame" x="225" y="249" width="150" height="28"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="43T-VG-KM3"/>
+                                    <constraint firstAttribute="width" constant="150" id="43T-VG-KM3"/>
                                     <constraint firstAttribute="height" constant="40" id="MZr-VR-3VF"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="20"/>
@@ -128,7 +131,6 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="letsPlay2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tIO-eb-6Hu"/>
                                     <action selector="letsPlay:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mrP-ys-OHc"/>
                                 </connections>
                             </button>

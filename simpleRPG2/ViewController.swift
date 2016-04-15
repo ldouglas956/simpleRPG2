@@ -24,13 +24,13 @@ class ViewController: UIViewController {
 	
 	var leftGuy: Player!
 	var rightGuy: Player!
-	var counter = 0
 
 	// MARK: Functions
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		leftName.userInteractionEnabled = false
 		rightName.userInteractionEnabled = false
+		letsPlay2.hidden = true
 	}
 	//
 	override func viewDidAppear(animated: Bool) {
@@ -40,11 +40,12 @@ class ViewController: UIViewController {
 	@IBAction func letsPlay(sender: UIButton) {
 		popupRight("Right Guy")
 		letsPlay.hidden = true
+		letsPlay2.hidden = false
 	}
 	//
 	@IBAction func letsPlay2(sender: UIButton) {
-		startGame()
 		letsPlay2.hidden = true
+		startGame()
 	}
 	//
 	@IBAction func rightAction(sender: UIButton) {
@@ -108,8 +109,6 @@ class ViewController: UIViewController {
 		
 		alertController1?.addAction(action1)
 		self.presentViewController(alertController1!, animated: true, completion: nil)
-		
-		counter = 1
 	}
 	//
 	func popupRight(name: String) {
