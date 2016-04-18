@@ -53,8 +53,8 @@ class ViewController: UIViewController {
 				rightAction.userInteractionEnabled = false
 				timeDelayRight()
 			} else {
-				textBox.text = "\(leftGuy.name) is Dead! Good job \(rightGuy.name)"
 				endGame()
+				textBox.text = "\(leftGuy.name) is Dead! Good job \(rightGuy.name)"
 			}
 		}
 	}
@@ -67,8 +67,8 @@ class ViewController: UIViewController {
 				leftAction.userInteractionEnabled = false
 				timeDelayLeft()
 			} else {
-				textBox.text = "\(rightGuy.name) is Dead! Good job \(leftGuy.name)"
 				endGame()
+				textBox.text = "\(rightGuy.name) is Dead! Good job \(leftGuy.name)"
 			}
 		}
 	}
@@ -88,9 +88,9 @@ class ViewController: UIViewController {
 	}
 	//
 	func endGame() {
-		resetButton.hidden = false
 		leftAction.userInteractionEnabled = false
 		rightAction.userInteractionEnabled = false
+		resetButton.hidden = false
 	}
 	//
 	func timeDelayRight() {
