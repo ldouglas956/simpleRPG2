@@ -73,7 +73,7 @@
                                     <constraint firstAttribute="height" constant="45" id="UQN-Cm-NBZ"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="TEXT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hwo-jA-qf2">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="A very simple two person RPG" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hwo-jA-qf2">
                                 <rect key="frame" x="9" y="36" width="584" height="21"/>
                                 <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -104,21 +104,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mRi-zy-A3k" userLabel="Lets Play 2">
-                                <rect key="frame" x="213" y="323" width="174" height="30"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="KiG-z4-Ap9"/>
-                                    <constraint firstAttribute="height" constant="40" id="Z59-GL-Bcx"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="20"/>
-                                <state key="normal" title="Let's Play!2">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="letsPlay2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5qR-do-mWc"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KfV-Vf-Jex">
                                 <rect key="frame" x="225" y="249" width="150" height="28"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -137,7 +122,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="mRi-zy-A3k" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="0B4-M9-1OC"/>
                             <constraint firstItem="faI-IE-7sF" firstAttribute="width" secondItem="hkh-FZ-wIz" secondAttribute="width" id="0d7-iN-2Rx"/>
                             <constraint firstItem="uqO-Yx-u3r" firstAttribute="top" secondItem="rWm-Cr-aIT" secondAttribute="bottom" id="22o-TO-WC1"/>
                             <constraint firstItem="Hwo-jA-qf2" firstAttribute="centerX" secondItem="ICM-LK-uGs" secondAttribute="centerX" id="35Z-1X-eqz"/>
@@ -150,7 +134,6 @@
                             <constraint firstItem="uqO-Yx-u3r" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="G5c-sk-0EG"/>
                             <constraint firstItem="Lfm-rA-GTt" firstAttribute="centerY" secondItem="rWm-Cr-aIT" secondAttribute="centerY" id="Ib9-6e-qCi"/>
                             <constraint firstItem="eZO-GT-Ehh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="Krd-Pj-CQU"/>
-                            <constraint firstItem="mRi-zy-A3k" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="L01-Ve-FcS"/>
                             <constraint firstAttribute="trailing" secondItem="Lfm-rA-GTt" secondAttribute="trailing" constant="5" id="LJA-uR-dIj"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="o9n-oD-v7B" secondAttribute="bottom" id="REg-cI-FGz"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ICM-LK-uGs" secondAttribute="trailing" constant="-10" id="Tvz-Yh-EtH"/>
@@ -185,7 +168,6 @@
                         <outlet property="leftName" destination="pc6-So-13Z" id="dbd-sa-UGc"/>
                         <outlet property="leftPlayer" destination="rWm-Cr-aIT" id="2lu-mW-zHs"/>
                         <outlet property="letsPlay" destination="KfV-Vf-Jex" id="gpX-9b-JkS"/>
-                        <outlet property="letsPlay2" destination="mRi-zy-A3k" id="dsH-oK-GeX"/>
                         <outlet property="resetButton" destination="Rwv-Qm-c3j" id="Kqg-b0-tm1"/>
                         <outlet property="rightAction" destination="faI-IE-7sF" id="6Ie-5k-fLe"/>
                         <outlet property="rightName" destination="o9n-oD-v7B" id="lpc-p5-3cD"/>

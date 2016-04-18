@@ -20,42 +20,40 @@ class ViewController: UIViewController {
 	@IBOutlet weak var leftName: UITextField!
 	@IBOutlet weak var rightName: UITextField!
 	@IBOutlet weak var letsPlay: UIButton!
-	@IBOutlet weak var letsPlay2: UIButton!
 	
 	var leftGuy: Player!
 	var rightGuy: Player!
+	
+	var a: String = ""
+	var b: String = ""
 
 	// MARK: Functions
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		leftName.userInteractionEnabled = false
-		rightName.userInteractionEnabled = false
-		letsPlay2.hidden = true
 	}
 	//
 	override func viewDidAppear(animated: Bool) {
-		popupLeft("Left Guy")
+		assignNames()
+		leftAction.userInteractionEnabled = false
+		rightAction.userInteractionEnabled = false
 	}
 	//
 	@IBAction func letsPlay(sender: UIButton) {
-		popupRight("Right Guy")
+		leftName.text = a
+		rightName.text = b
 		letsPlay.hidden = true
-		letsPlay2.hidden = false
-	}
-	//
-	@IBAction func letsPlay2(sender: UIButton) {
-		letsPlay2.hidden = true
 		startGame()
 	}
 	//
 	@IBAction func rightAction(sender: UIButton) {
-
 		if leftGuy.isAlive {
 			leftGuy.attackPlayer()
-			if leftGuy.HP >= 0 {
+			if leftGuy.HP > 0 {
 				textBox.text = "\(leftGuy.name) has \(String(leftGuy.HP)) HP Left!"
+				rightAction.userInteractionEnabled = false
+				timeDelayRight()
 			} else {
-				textBox.text = "\(leftGuy.name) is Dead!"
+				textBox.text = "\(leftGuy.name) is Dead! Good job \(rightGuy.name)"
 				endGame()
 			}
 		}
@@ -64,10 +62,12 @@ class ViewController: UIViewController {
 	@IBAction func leftAction(sender: UIButton) {
 		if rightGuy.isAlive {
 			rightGuy.attackPlayer()
-			if rightGuy.HP >= 0 {
+			if rightGuy.HP > 0 {
 				textBox.text = "\(rightGuy.name) has \(String(rightGuy.HP)) HP Left!"
+				leftAction.userInteractionEnabled = false
+				timeDelayLeft()
 			} else {
-				textBox.text = "\(rightGuy.name) is Dead!"
+				textBox.text = "\(rightGuy.name) is Dead! Good job \(leftGuy.name)"
 				endGame()
 			}
 		}
@@ -93,42 +93,45 @@ class ViewController: UIViewController {
 		rightAction.userInteractionEnabled = false
 	}
 	//
-	func popupLeft(name: String) {
-		var alertController1: UIAlertController?
-		alertController1 = UIAlertController(title: "Enter \(name)'s Name", message: "Yeah, the one on the left", preferredStyle: .Alert)
-		
-		alertController1!.addTextFieldWithConfigurationHandler(
-			{(textField: UITextField!) in textField.placeholder = "Name goes here..."})
-		
-		let action1 = UIAlertAction(title: "Play!", style: UIAlertActionStyle.Default, handler: {[weak self]
-			(paramAction: UIAlertAction!) in
-			if let textFields = alertController1?.textFields{
-				let theTextFields = textFields as [UITextField]
-				let enteredText = theTextFields[0].text
-				self!.leftName.text = enteredText}})
-		
-		alertController1?.addAction(action1)
-		self.presentViewController(alertController1!, animated: true, completion: nil)
+	func timeDelayRight() {
+		let delay = dispatch_time(DISPATCH_TIME_NOW, Int64(1.5 * Double(NSEC_PER_SEC)))
+		dispatch_after(delay, dispatch_get_main_queue()) {
+			self.rightAction.userInteractionEnabled = true
+		}
 	}
 	//
-	func popupRight(name: String) {
-		var alertController2: UIAlertController?
-		alertController2 = UIAlertController(title: "Enter \(name)'s Name", message: "You didn't think I forgot about you, did you?", preferredStyle: .Alert)
-		
-		alertController2!.addTextFieldWithConfigurationHandler(
-			{(textField: UITextField!) in textField.placeholder = "Name goes here..."})
-		
-		let action1 = UIAlertAction(title: "Play!", style: UIAlertActionStyle.Default, handler: {[weak self]
-			(paramAction: UIAlertAction!) in
-			if let textFields = alertController2?.textFields{
-				let theTextFields = textFields as [UITextField]
-				let enteredText = theTextFields[0].text
-				self!.rightName.text = enteredText}})
-		
-		alertController2?.addAction(action1)
-		self.presentViewController(alertController2!, animated: true, completion: nil)
+	func timeDelayLeft() {
+		let delay = dispatch_time(DISPATCH_TIME_NOW, Int64(1.5 * Double(NSEC_PER_SEC)))
+		dispatch_after(delay, dispatch_get_main_queue()) {
+			self.leftAction.userInteractionEnabled = true
+		}
 	}
 	//
-	
+	func assignNames() {
+		let firstAlert = UIAlertController(title: "Enter the left guy's name.", message: "Yeah, the one on the left.", preferredStyle: UIAlertControllerStyle.Alert)
+		firstAlert.addTextFieldWithConfigurationHandler({
+			textField in
+			textField.placeholder = "Name Here"
+		})
+		
+		let secondAlert = UIAlertController(title: "Enter the right guy's name.", message: "Now the right...", preferredStyle: UIAlertControllerStyle.Alert)
+		secondAlert.addTextFieldWithConfigurationHandler({
+			textField in
+			textField.placeholder = "Name Here"
+		})
+		
+		firstAlert.addAction(UIAlertAction(title: "Next", style: UIAlertActionStyle.Default, handler: {
+			action in
+			self.a = (firstAlert.textFields?[0].text)!
+			self.presentViewController(secondAlert, animated :true, completion :nil)
+		}))
+		
+		secondAlert.addAction(UIAlertAction(title: "Play!", style: UIAlertActionStyle.Default, handler: {
+			action in
+			self.b = (secondAlert.textFields?[0].text)!
+		}))
+		
+		self.presentViewController(firstAlert, animated: true, completion: {})
+	}
 }
 
